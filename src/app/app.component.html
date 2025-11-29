@@ -1,0 +1,27 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>{{ title }}</h1>
+    <nav class="app-nav" role="navigation" aria-label="Navegación principal">
+      <a 
+        routerLink="/calendar" 
+        routerLinkActive="active" 
+        [routerLinkActiveOptions]="{exact: false}"
+        class="nav-tab"
+        aria-label="Ir al calendario de citas">
+        Calendario
+      </a>
+      <a 
+        routerLink="/results" 
+        routerLinkActive="active" 
+        [routerLinkActiveOptions]="{exact: false}"
+        class="nav-tab"
+        aria-label="Ir a resultados médicos">
+        Resultados
+      </a>
+    </nav>
+  </header>
+  
+  <main class="app-content" role="main">
+    <router-outlet></router-outlet>
+  </main>
+</div>

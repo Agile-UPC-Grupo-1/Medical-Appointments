@@ -1,0 +1,67 @@
+<div class="popup-overlay" (click)="close()">
+  <div class="popup-content" (click)="$event.stopPropagation()">
+    <div class="popup-header">
+      <h2>Appointment Details</h2>
+      <button class="close-button" (click)="close()" aria-label="Close">&times;</button>
+    </div>
+
+    <div class="popup-body">
+      <!-- Validation Error Message -->
+      <div *ngIf="validationError" class="validation-error">
+        <span class="error-icon">⚠️</span>
+        <span class="error-text">{{ validationError }}</span>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input
+          *ngIf="isEditMode"
+          id="description"
+          type="text"
+          [(ngModel)]="editedAppointment!.description"
+          class="form-control"
+          placeholder="Enter appointment description"
+          required
+        />
+        <p *ngIf="!isEditMode" class="form-value">{{ appointment.description }}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input
+          *ngIf="isEditMode"
+          id="date"
+          type="date"
+          [(ngModel)]="editedAppointment!.date"
+          class="form-control"
+        />
+        <p *ngIf="!isEditMode" class="form-value">{{ appointment.date }}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="time">Time:</label>
+        <input
+          *ngIf="isEditMode"
+          id="time"
+          type="time"
+          [(ngModel)]="editedAppointment!.time"
+          class="form-control"
+        />
+        <p *ngIf="!isEditMode" class="form-value">{{ appointment.time }}</p>
+      </div>
+    </div>
+
+    <div class="popup-footer">
+      <div *ngIf="!isEditMode" class="action-buttons">
+        <button class="btn btn-primary" (click)="editAppointment()">Edit</button>
+        <button class="btn btn-danger" (click)="deleteAppointment()">Delete</button>
+        <button *ngIf="isPast" class="btn btn-info" (click)="viewResults()">View Results</button>
+      </div>
+
+      <div *ngIf="isEditMode" class="action-buttons">
+        <button class="btn btn-success" (click)="saveChanges()">Save</button>
+        <button class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

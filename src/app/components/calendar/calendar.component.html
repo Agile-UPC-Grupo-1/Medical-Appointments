@@ -1,0 +1,116 @@
+<div class="calendar-container">
+  <!-- Error and Success Messages -->
+  <div *ngIf="errorMessage" class="message error-message">
+    <span class="message-icon">⚠️</span>
+    <span class="message-text">{{ errorMessage }}</span>
+    <button class="message-close" (click)="errorMessage = null">×</button>
+  </div>
+  
+  <div *ngIf="successMessage" class="message success-message">
+    <span class="message-icon">✓</span>
+    <span class="message-text">{{ successMessage }}</span>
+    <button class="message-close" (click)="successMessage = null">×</button>
+  </div>
+
+  <div class="calendar-header">
+    <button class="nav-button" (click)="previousMonth()">&lt;</button>
+    <h2>{{ currentMonthYear }}</h2>
+    <button class="nav-button" (click)="nextMonth()">&gt;</button>
+  </div>
+
+  <div class="calendar-grid">
+    <div class="calendar-weekday">Dom</div>
+    <div class="calendar-weekday">Lun</div>
+    <div class="calendar-weekday">Mar</div>
+    <div class="calendar-weekday">Mié</div>
+    <div class="calendar-weekday">Jue</div>
+    <div class="calendar-weekday">Vie</div>
+    <div class="calendar-weekday">Sáb</div>
+
+    <div 
+      *ngFor="let day of calendarDays" 
+      class="calendar-day"
+      [class.other-month]="!day.isCurrentMonth"
+      [class.today]="day.isToday"
+      [class.selected]="selectedDate && day.date.getTime() === selectedDate.getTime()"
+      (click)="onDateClick(day.date)">
+      
+      <div class="day-number">{{ day.date.getDate() }}</div>
+      
+      <div class="appointments-list">
+        <div 
+          *ngFor="let appointment of day.appointments"
+          class="appointment-item"
+          [ngClass]="getAppointmentClass(appointment)"
+          (click)="onAppointmentClick(appointment, $event)">
+          <span class="appointment-time">{{ appointment.time }}</span>
+          <span class="appointment-desc">{{ appointment.description }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Appointment Form -->
+<div *ngIf="showCreateForm" class="popup-overlay" (click)="cancelCreate()">
+  <div class="popup-content create-form" (click)="$event.stopPropagation()">
+    <div class="popup-header">
+      <h2>Nueva Cita</h2>
+      <button class="close-button" (click)="cancelCreate()" aria-label="Close">&times;</button>
+    </div>
+
+    <div class="popup-body">
+      <div class="form-group">
+        <label for="create-date">Fecha:</label>
+        <input
+          id="create-date"
+          type="date"
+          [(ngModel)]="newAppointment.date"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="create-time">Hora:</label>
+        <input
+          id="create-time"
+          type="time"
+          [(ngModel)]="newAppointment.time"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="create-description">Descripción:</label>
+        <input
+          id="create-description"
+          type="text"
+          [(ngModel)]="newAppointment.description"
+          class="form-control"
+          placeholder="Ej: Examen de sangre"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="popup-footer">
+      <div class="action-buttons">
+        <button class="btn btn-success" (click)="submitNewAppointment()">Crear Cita</button>
+        <button class="btn btn-secondary" (click)="cancelCreate()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Appointment Popup -->
+<app-appointment-popup
+  *ngIf="showPopup && selectedAppointment"
+  [appointment]="selectedAppointment"
+  [isPast]="isPastAppointment(selectedAppointment)"
+  (onClose)="onPopupClose()"
+  (onSave)="onPopupSave($event)"
+  (onDelete)="onPopupDelete($event)"
+  (onViewResults)="onPopupViewResults($event)">
+</app-appointment-popup>

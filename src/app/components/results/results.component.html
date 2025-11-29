@@ -1,0 +1,62 @@
+<div class="results-container">
+  <div class="results-header">
+    <h2>Resultados Médicos</h2>
+    <button class="back-button" (click)="backToCalendar()">← Volver al Calendario</button>
+  </div>
+
+  <!-- No appointment selected -->
+  <div *ngIf="!appointmentId" class="no-appointment">
+    <p>Seleccione una cita desde el calendario para ver sus resultados.</p>
+  </div>
+
+  <!-- Loading state -->
+  <div *ngIf="loading && appointmentId" class="loading">
+    <p>Cargando resultados...</p>
+  </div>
+
+  <!-- Error state - only show if no data is available -->
+  <div *ngIf="error && !loading && !appointment && results.length === 0" class="error-message">
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- Appointment info -->
+  <div *ngIf="appointment && !loading" class="appointment-info">
+    <h3>Información de la Cita</h3>
+    <p><strong>Descripción:</strong> {{ appointment.description }}</p>
+    <p><strong>Fecha:</strong> {{ appointment.date }}</p>
+    <p><strong>Hora:</strong> {{ appointment.time }}</p>
+  </div>
+
+  <!-- No results available -->
+  <div *ngIf="!loading && appointmentId && results.length === 0 && appointment" class="no-results">
+    <p>No hay resultados disponibles para esta cita.</p>
+  </div>
+
+  <!-- Results display -->
+  <div *ngIf="!loading && results.length > 0" class="results-content">
+    <div *ngFor="let result of results" class="result-section">
+      <h3>{{ getResultTypeLabel(result.type) }}</h3>
+      
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Examen</th>
+            <th>Valor</th>
+            <th>Rango de Referencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of result.results">
+            <td>{{ item.name }}</td>
+            <td class="value">{{ formatResultValue(item.value, item.unit) }}</td>
+            <td class="reference">{{ item.referenceRange || 'N/A' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="result.notes" class="notes">
+        <strong>Notas:</strong> {{ result.notes }}
+      </div>
+    </div>
+  </div>
+</div>

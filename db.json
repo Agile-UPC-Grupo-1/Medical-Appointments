@@ -1,0 +1,457 @@
+{
+  "appointments": [
+    {
+      "id": 1,
+      "date": "2025-10-15",
+      "time": "09:00",
+      "description": "Examen de glucosa en ayunas",
+      "createdAt": "2025-10-10T10:00:00-05:00"
+    },
+    {
+      "id": 2,
+      "date": "2025-09-20",
+      "time": "14:30",
+      "description": "Hemograma completo",
+      "createdAt": "2025-09-15T15:00:00-05:00"
+    },
+    {
+      "id": 3,
+      "date": "2025-08-05",
+      "time": "10:15",
+      "description": "Perfil hepático completo",
+      "createdAt": "2025-08-01T09:00:00-05:00"
+    },
+    {
+      "id": 4,
+      "date": "2025-07-12",
+      "time": "08:30",
+      "description": "Análisis de sangre general",
+      "createdAt": "2025-07-08T11:00:00-05:00"
+    },
+    {
+      "id": 5,
+      "date": "2025-06-25",
+      "time": "16:00",
+      "description": "Control de glucosa postprandial",
+      "createdAt": "2025-06-20T14:00:00-05:00"
+    },
+    {
+      "id": 6,
+      "date": "2025-11-05",
+      "time": "08:00",
+      "description": "Chequeo general de rutina",
+      "createdAt": "2025-11-01T10:00:00-05:00"
+    },
+    {
+      "id": 7,
+      "date": "2025-11-10",
+      "time": "10:30",
+      "description": "Examen de tiroides (TSH, T3, T4)",
+      "createdAt": "2025-11-02T14:00:00-05:00"
+    },
+    {
+      "id": 8,
+      "date": "2025-11-15",
+      "time": "09:15",
+      "description": "Control de presión arterial",
+      "createdAt": "2025-11-03T11:00:00-05:00"
+    },
+    {
+      "id": 9,
+      "date": "2025-11-18",
+      "time": "14:00",
+      "description": "Análisis de orina completo",
+      "createdAt": "2025-11-05T09:00:00-05:00"
+    },
+    {
+      "id": 10,
+      "date": "2025-11-22",
+      "time": "11:00",
+      "description": "Perfil lipídico completo",
+      "createdAt": "2025-11-06T15:00:00-05:00"
+    },
+    {
+      "id": 11,
+      "date": "2025-11-25",
+      "time": "15:30",
+      "description": "Hemograma de control",
+      "createdAt": "2025-11-07T10:00:00-05:00"
+    },
+    {
+      "id": 12,
+      "date": "2025-11-28",
+      "time": "08:45",
+      "description": "Examen de glucosa en ayunas",
+      "createdAt": "2025-11-08T12:00:00-05:00"
+    },
+    {
+      "id": 13,
+      "date": "2025-12-05",
+      "time": "10:00",
+      "description": "Consulta de seguimiento",
+      "createdAt": "2025-11-10T09:00:00-05:00"
+    },
+    {
+      "id": 14,
+      "date": "2025-12-15",
+      "time": "16:00",
+      "description": "Revisión de resultados anuales",
+      "createdAt": "2025-11-12T11:00:00-05:00"
+    },
+    {
+      "id": "ea5c",
+      "date": "2025-11-30",
+      "time": "09:00",
+      "description": "Examen de higado",
+      "createdAt": "2025-11-29T05:37:23.455Z"
+    }
+  ],
+  "results": [
+    {
+      "id": 1,
+      "appointmentId": 1,
+      "type": "glucose",
+      "results": [
+        {
+          "name": "Glucosa en ayunas",
+          "value": 95,
+          "unit": "mg/dL",
+          "referenceRange": "70-100 mg/dL"
+        }
+      ],
+      "notes": "Valores normales"
+    },
+    {
+      "id": 2,
+      "appointmentId": 2,
+      "type": "hemogram",
+      "results": [
+        {
+          "name": "Glóbulos rojos",
+          "value": 4.8,
+          "unit": "millones/μL",
+          "referenceRange": "4.5-5.5 millones/μL"
+        },
+        {
+          "name": "Glóbulos blancos",
+          "value": 7.2,
+          "unit": "miles/μL",
+          "referenceRange": "4.5-11.0 miles/μL"
+        },
+        {
+          "name": "Hemoglobina",
+          "value": 14.5,
+          "unit": "g/dL",
+          "referenceRange": "13.5-17.5 g/dL"
+        },
+        {
+          "name": "Plaquetas",
+          "value": 250,
+          "unit": "miles/μL",
+          "referenceRange": "150-400 miles/μL"
+        }
+      ],
+      "notes": "Hemograma dentro de parámetros normales"
+    },
+    {
+      "id": 3,
+      "appointmentId": 3,
+      "type": "liver",
+      "results": [
+        {
+          "name": "ALT (GPT)",
+          "value": 28,
+          "unit": "U/L",
+          "referenceRange": "7-56 U/L"
+        },
+        {
+          "name": "AST (GOT)",
+          "value": 32,
+          "unit": "U/L",
+          "referenceRange": "10-40 U/L"
+        },
+        {
+          "name": "Bilirrubina total",
+          "value": 0.8,
+          "unit": "mg/dL",
+          "referenceRange": "0.3-1.2 mg/dL"
+        },
+        {
+          "name": "Fosfatasa alcalina",
+          "value": 72,
+          "unit": "U/L",
+          "referenceRange": "44-147 U/L"
+        },
+        {
+          "name": "Albúmina",
+          "value": 4.2,
+          "unit": "g/dL",
+          "referenceRange": "3.5-5.5 g/dL"
+        }
+      ],
+      "notes": "Función hepática normal"
+    },
+    {
+      "id": 4,
+      "appointmentId": 4,
+      "type": "blood",
+      "results": [
+        {
+          "name": "Colesterol total",
+          "value": 185,
+          "unit": "mg/dL",
+          "referenceRange": "<200 mg/dL"
+        },
+        {
+          "name": "HDL",
+          "value": 55,
+          "unit": "mg/dL",
+          "referenceRange": ">40 mg/dL"
+        },
+        {
+          "name": "LDL",
+          "value": 110,
+          "unit": "mg/dL",
+          "referenceRange": "<130 mg/dL"
+        },
+        {
+          "name": "Triglicéridos",
+          "value": 100,
+          "unit": "mg/dL",
+          "referenceRange": "<150 mg/dL"
+        },
+        {
+          "name": "Creatinina",
+          "value": 0.9,
+          "unit": "mg/dL",
+          "referenceRange": "0.7-1.3 mg/dL"
+        },
+        {
+          "name": "Urea",
+          "value": 35,
+          "unit": "mg/dL",
+          "referenceRange": "15-40 mg/dL"
+        }
+      ],
+      "notes": "Perfil lipídico y función renal normales"
+    },
+    {
+      "id": 5,
+      "appointmentId": 5,
+      "type": "glucose",
+      "results": [
+        {
+          "name": "Glucosa postprandial (2 horas)",
+          "value": 128,
+          "unit": "mg/dL",
+          "referenceRange": "<140 mg/dL"
+        },
+        {
+          "name": "Hemoglobina glicosilada (HbA1c)",
+          "value": 5.4,
+          "unit": "%",
+          "referenceRange": "4.0-5.6%"
+        }
+      ],
+      "notes": "Control glucémico adecuado"
+    },
+    {
+      "id": 6,
+      "appointmentId": 6,
+      "type": "blood",
+      "results": [
+        {
+          "name": "Colesterol total",
+          "value": 192,
+          "unit": "mg/dL",
+          "referenceRange": "<200 mg/dL"
+        },
+        {
+          "name": "HDL",
+          "value": 58,
+          "unit": "mg/dL",
+          "referenceRange": ">40 mg/dL"
+        },
+        {
+          "name": "LDL",
+          "value": 115,
+          "unit": "mg/dL",
+          "referenceRange": "<130 mg/dL"
+        },
+        {
+          "name": "Triglicéridos",
+          "value": 95,
+          "unit": "mg/dL",
+          "referenceRange": "<150 mg/dL"
+        }
+      ],
+      "notes": "Chequeo general satisfactorio"
+    },
+    {
+      "id": 7,
+      "appointmentId": 7,
+      "type": "blood",
+      "results": [
+        {
+          "name": "TSH",
+          "value": 2.1,
+          "unit": "mIU/L",
+          "referenceRange": "0.4-4.0 mIU/L"
+        },
+        {
+          "name": "T3 libre",
+          "value": 3.2,
+          "unit": "pg/mL",
+          "referenceRange": "2.3-4.2 pg/mL"
+        },
+        {
+          "name": "T4 libre",
+          "value": 1.3,
+          "unit": "ng/dL",
+          "referenceRange": "0.8-1.8 ng/dL"
+        }
+      ],
+      "notes": "Función tiroidea normal"
+    },
+    {
+      "id": 8,
+      "appointmentId": 8,
+      "type": "blood",
+      "results": [
+        {
+          "name": "Presión sistólica",
+          "value": 118,
+          "unit": "mmHg",
+          "referenceRange": "<120 mmHg"
+        },
+        {
+          "name": "Presión diastólica",
+          "value": 76,
+          "unit": "mmHg",
+          "referenceRange": "<80 mmHg"
+        },
+        {
+          "name": "Frecuencia cardíaca",
+          "value": 72,
+          "unit": "lpm",
+          "referenceRange": "60-100 lpm"
+        }
+      ],
+      "notes": "Presión arterial óptima"
+    },
+    {
+      "id": 9,
+      "appointmentId": 9,
+      "type": "blood",
+      "results": [
+        {
+          "name": "pH",
+          "value": 6.2,
+          "unit": "",
+          "referenceRange": "4.5-8.0"
+        },
+        {
+          "name": "Densidad",
+          "value": 1.018,
+          "unit": "",
+          "referenceRange": "1.005-1.030"
+        },
+        {
+          "name": "Proteínas",
+          "value": 0,
+          "unit": "mg/dL",
+          "referenceRange": "Negativo"
+        },
+        {
+          "name": "Glucosa",
+          "value": 0,
+          "unit": "mg/dL",
+          "referenceRange": "Negativo"
+        },
+        {
+          "name": "Leucocitos",
+          "value": 2,
+          "unit": "por campo",
+          "referenceRange": "0-5 por campo"
+        }
+      ],
+      "notes": "Análisis de orina normal"
+    },
+    {
+      "id": 10,
+      "appointmentId": 10,
+      "type": "blood",
+      "results": [
+        {
+          "name": "Colesterol total",
+          "value": 178,
+          "unit": "mg/dL",
+          "referenceRange": "<200 mg/dL"
+        },
+        {
+          "name": "HDL",
+          "value": 62,
+          "unit": "mg/dL",
+          "referenceRange": ">40 mg/dL"
+        },
+        {
+          "name": "LDL",
+          "value": 98,
+          "unit": "mg/dL",
+          "referenceRange": "<130 mg/dL"
+        },
+        {
+          "name": "Triglicéridos",
+          "value": 90,
+          "unit": "mg/dL",
+          "referenceRange": "<150 mg/dL"
+        },
+        {
+          "name": "VLDL",
+          "value": 18,
+          "unit": "mg/dL",
+          "referenceRange": "<30 mg/dL"
+        }
+      ],
+      "notes": "Perfil lipídico excelente"
+    },
+    {
+      "id": 11,
+      "appointmentId": 11,
+      "type": "hemogram",
+      "results": [
+        {
+          "name": "Glóbulos rojos",
+          "value": 4.9,
+          "unit": "millones/μL",
+          "referenceRange": "4.5-5.5 millones/μL"
+        },
+        {
+          "name": "Glóbulos blancos",
+          "value": 6.8,
+          "unit": "miles/μL",
+          "referenceRange": "4.5-11.0 miles/μL"
+        },
+        {
+          "name": "Hemoglobina",
+          "value": 15.2,
+          "unit": "g/dL",
+          "referenceRange": "13.5-17.5 g/dL"
+        },
+        {
+          "name": "Hematocrito",
+          "value": 44.5,
+          "unit": "%",
+          "referenceRange": "40-50%"
+        },
+        {
+          "name": "Plaquetas",
+          "value": 265,
+          "unit": "miles/μL",
+          "referenceRange": "150-400 miles/μL"
+        }
+      ],
+      "notes": "Hemograma de control normal"
+    }
+  ]
+}

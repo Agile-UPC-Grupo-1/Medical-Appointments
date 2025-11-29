@@ -1,0 +1,448 @@
+.results-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  animation: fadeIn 0.3s ease-in;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--primary-blue);
+  padding-bottom: 1.25rem;
+}
+
+.results-header h2 {
+  margin: 0;
+  color: var(--primary-blue);
+  font-size: 1.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.results-header h2::before {
+  content: '📊';
+  font-size: 1.5rem;
+}
+
+.back-button {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+}
+
+.back-button:hover {
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, #003d7a 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+.no-appointment,
+.no-results,
+.loading {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  background: var(--neutral-gray);
+  border-radius: 8px;
+  border: 2px dashed var(--border-color);
+}
+
+.loading::after {
+  content: '...';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+.error-message {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  border: 2px solid var(--accent-red);
+  color: #c62828;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.error-message::before {
+  content: '⚠️';
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.appointment-info {
+  background: linear-gradient(135deg, var(--primary-blue-light) 0%, white 100%);
+  padding: 1.75rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 5px solid var(--primary-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.appointment-info h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--primary-blue);
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.appointment-info h3::before {
+  content: '📋';
+  font-size: 1.1rem;
+}
+
+.appointment-info p {
+  margin: 0.625rem 0;
+  color: var(--text-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.appointment-info p strong {
+  color: var(--primary-blue);
+  min-width: 100px;
+  font-weight: 600;
+}
+
+.results-content {
+  margin-top: 2rem;
+}
+
+.result-section {
+  margin-bottom: 2.5rem;
+  padding: 0;
+  background-color: white;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.result-section:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-blue);
+}
+
+.result-section h3 {
+  margin: 0;
+  color: white;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Icons for different result types */
+.result-section h3[data-type="glucose"]::before {
+  content: '🩸';
+}
+
+.result-section h3[data-type="blood"]::before {
+  content: '💉';
+}
+
+.result-section h3[data-type="liver"]::before {
+  content: '🫀';
+}
+
+.result-section h3[data-type="hemogram"]::before {
+  content: '🔬';
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.results-table thead {
+  background: linear-gradient(135deg, var(--secondary-teal) 0%, var(--secondary-teal-dark) 100%);
+  color: white;
+}
+
+.results-table th {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.results-table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--neutral-gray-dark);
+}
+
+.results-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.results-table tbody tr:hover {
+  background-color: var(--primary-blue-light);
+}
+
+.results-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.results-table .value {
+  font-weight: 700;
+  color: var(--primary-blue);
+  font-size: 1.05rem;
+}
+
+.results-table .reference {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.notes {
+  margin: 1.5rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+  border-left: 5px solid #f39c12;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.notes strong {
+  color: #e67e22;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.notes strong::before {
+  content: '📝';
+}
+
+/* Status indicators for values */
+.results-table .value.normal {
+  color: var(--accent-green);
+}
+
+.results-table .value.abnormal {
+  color: var(--accent-red);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .results-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-container {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .results-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .back-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .appointment-info {
+    padding: 1.25rem;
+  }
+
+  .appointment-info p {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .appointment-info p strong {
+    min-width: auto;
+  }
+
+  .result-section h3 {
+    font-size: 1.1rem;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .results-table {
+    font-size: 0.9rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 0.75rem 1rem;
+  }
+
+  .notes {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .results-container {
+    padding: 0.75rem;
+  }
+
+  .results-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .results-header h2::before {
+    font-size: 1.2rem;
+  }
+
+  .back-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .appointment-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .result-section h3 {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Stack table on mobile */
+  .results-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .results-table thead {
+    display: none;
+  }
+
+  .results-table tbody,
+  .results-table tr,
+  .results-table td {
+    display: block;
+  }
+
+  .results-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .results-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--neutral-gray-dark);
+    position: relative;
+    padding-left: 45%;
+  }
+
+  .results-table td:last-child {
+    border-bottom: none;
+  }
+
+  .results-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  .notes {
+    margin: 0.75rem;
+    padding: 0.875rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .results-header h2::before,
+  .appointment-info h3::before,
+  .result-section h3::before,
+  .notes strong::before {
+    display: none;
+  }
+
+  .no-appointment,
+  .no-results,
+  .loading {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .results-container {
+    box-shadow: none;
+    border: none;
+  }
+
+  .back-button {
+    display: none;
+  }
+
+  .result-section {
+    page-break-inside: avoid;
+  }
+
+  .results-table tbody tr:hover {
+    background-color: transparent;
+  }
+}
