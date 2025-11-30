@@ -6,6 +6,7 @@ import { AppointmentService } from '../../services/appointment.service';
 import { TimezoneService } from '../../services/timezone.service';
 import { AppointmentPopupComponent } from '../appointment-popup/appointment-popup.component';
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek, eachDayOfInterval, isSameDay, isSameMonth, format, addMonths, subMonths } from 'date-fns';
+import { es } from 'date-fns/locale';
 
 /**
  * Calendar component for displaying and managing medical appointments
@@ -122,7 +123,8 @@ export class CalendarComponent implements OnInit {
       };
     });
 
-    this.currentMonthYear = format(this.currentDate, 'MMMM yyyy');
+    const monthYear = format(this.currentDate, 'MMMM yyyy', { locale: es });
+    this.currentMonthYear = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
   }
 
   /**
