@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppointmentService } from '../../services/appointment.service';
 import { Appointment, MedicalResults } from '../../models';
+import { ResultsChatbotComponent } from '../results-chatbot/results-chatbot.component';
 
 /**
  * Component for displaying medical results of an appointment
@@ -11,7 +12,7 @@ import { Appointment, MedicalResults } from '../../models';
 @Component({
   selector: 'app-results',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ResultsChatbotComponent],
   templateUrl: './results.component.html',
   styleUrl: './results.component.css'
 })
