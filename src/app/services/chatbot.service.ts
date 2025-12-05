@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Appointment, MedicalResults } from '../models'; // 🔁 Ajusta la ruta si es necesario
+import { environment } from '../../environments/environment';
 
 export interface ChatResponse {
   answer: string;
@@ -20,7 +21,7 @@ export interface ResultsChatRequest {
 })
 export class ChatbotService {
   // Base del endpoint de tu backend
-  private baseUrl = 'http://127.0.0.1:8000';
+  private baseUrl = `${environment.CHAT_BOT}`;
 
   constructor(private http: HttpClient) {}
 

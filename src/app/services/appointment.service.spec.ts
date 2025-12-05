@@ -2,12 +2,13 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AppointmentService } from './appointment.service';
 import { Appointment, MedicalResults } from '../models';
+import { environment } from '../../environments/environment';
 import * as fc from 'fast-check';
 
 describe('AppointmentService', () => {
   let service: AppointmentService;
   let httpMock: HttpTestingController;
-  const apiUrl = 'http://localhost:3000';
+  const apiUrl = `${environment.JSON_SERVER}`;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
