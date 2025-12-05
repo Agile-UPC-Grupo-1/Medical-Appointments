@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Appointment, MedicalResults } from '../models';
+import { environment } from '../../environments/environment';
 
 /**
  * Service for managing appointments and medical results
@@ -12,7 +13,7 @@ import { Appointment, MedicalResults } from '../models';
   providedIn: 'root'
 })
 export class AppointmentService {
-  private readonly apiUrl = 'http://localhost:3000';
+  private readonly apiUrl = `${environment.JSON_SERVER}`;
 
   constructor(private http: HttpClient) {}
 
