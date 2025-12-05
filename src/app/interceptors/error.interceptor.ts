@@ -1,5 +1,4 @@
 import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
-import { inject } from '@angular/core';
 import { catchError, retry, throwError, timer } from 'rxjs';
 
 /**
@@ -27,15 +26,20 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((error: HttpErrorResponse) => {
       let errorMessage = 'An error occurred';
 
-      if (error.error instanceof ErrorEvent) {
-        // Client-side or network error
+      // 👇 Protegemos el uso de ErrorEvent para que no rompa en SSR
+      const isBrowserErrorEvent =
+        typeof ErrorEvent !== 'undefined' && error.error instanceof ErrorEvent;
+
+      if (isBrowserErrorEvent) {
+        // Client-side or network error (solo aplica en navegador)
         errorMessage = `Network error: ${error.error.message}`;
         console.error('Client-side error:', error.error.message);
       } else {
         // Backend returned an unsuccessful response code
         switch (error.status) {
           case 0:
-            errorMessage = 'No se puede conectar con el servidor. Verifica que JSON Server esté ejecutándose.';
+            errorMessage =
+              'No se puede conectar con el servidor. Verifica que JSON Server esté ejecutándose.';
             console.error('Connection error: Server is not available');
             break;
           case 404:
